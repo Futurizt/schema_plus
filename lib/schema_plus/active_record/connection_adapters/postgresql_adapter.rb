@@ -317,7 +317,7 @@ module SchemaPlus
             FROM pg_type T
             JOIN pg_enum E ON E.enumtypid = T.oid
             JOIN pg_namespace N ON N.oid = T.typnamespace
-            ORDER BY 1, 2, 4
+            ORDER BY 1, 2
           SQL
 
           result.reduce([]) do |res, row|
