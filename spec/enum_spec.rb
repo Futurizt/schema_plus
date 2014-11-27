@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 def enum_fields(name, schema = 'public')
   sql = <<-SQL
-    SELECT array_to_string(array_agg(E.enumlabel ORDER BY enumsortorder), ' ') AS "values"
+    SELECT array_to_string(array_agg(E.enumlabel), ' ') AS "values"
     FROM pg_enum E
     JOIN pg_type T ON E.enumtypid = T.oid
     JOIN pg_namespace N ON N.oid = T.typnamespace

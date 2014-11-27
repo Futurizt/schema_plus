@@ -312,9 +312,8 @@ module SchemaPlus
             SELECT
               N.nspname AS schema_name,
               T.typname AS enum_name,
-              E.enumlabel AS enum_label,
-              E.enumsortorder AS enum_sort_order
-              --array_agg(E.enumlabel ORDER BY enumsortorder) AS labels
+              E.enumlabel AS enum_label
+              --array_agg(E.enumlabel) AS labels
             FROM pg_type T
             JOIN pg_enum E ON E.enumtypid = T.oid
             JOIN pg_namespace N ON N.oid = T.typnamespace
